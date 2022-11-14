@@ -1,0 +1,725 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframEngine 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       160,          7]
+NotebookDataLength[     27921,        717]
+NotebookOptionsPosition[     25265,        665]
+NotebookOutlinePosition[     25874,        687]
+CellTagsIndexPosition[     25831,        684]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+This is an extension of the known Maxwell equations according to the Hall \
+Photon Theory.
+Charles J. Hall, who has worked in Area - 51, has published this theory.
+I calculated with Mathematica the changes in the well-known laws of physics \
+(Gauss\[CloseCurlyQuote] Law of Electricity, Gauss\[CloseCurlyQuote] Law of \
+Magnetism, Faraday\[CloseCurlyQuote]s Law, Amp\[EGrave]re\[CloseCurlyQuote]s \
+Law and two new laws, according to the Hall Photon Theory).
+\
+\>", "Text",ExpressionUUID->"fad7b501-fadd-4aba-abd0-8644b20b3191"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"c", " ", "=", " ", 
+   RowBox[{"2.99792458", "*", 
+    RowBox[{"10", "^", "8"}], "*", 
+    RowBox[{"m", "/", "s"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Epsilon]0", " ", "=", 
+   FractionBox[
+    RowBox[{"2500000", " ", "Amp\[EGrave]re", " ", "m"}], 
+    RowBox[{
+     SuperscriptBox["c", "2"], " ", "\[Pi]", " ", "s", " ", "Volt"}]]}], " ", 
+  
+  RowBox[{"(*", " ", 
+   RowBox[{"=", " ", 
+    RowBox[{"8.85418781762039", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"-", "12"}]}], " ", "*", "Amp\[EGrave]re", "*", 
+     RowBox[{"s", "/", 
+      RowBox[{"(", 
+       RowBox[{"Volt", "*", "m"}], ")"}]}]}]}], " ", "*)"}], ";", " ", 
+  RowBox[{"\[Mu]0", " ", "=", " ", 
+   RowBox[{"4", "*", "\[Pi]", "*", 
+    RowBox[{"(", 
+     RowBox[{"10", "^", 
+      RowBox[{"-", "7"}]}], ")"}], "*", "Volt", "*", 
+    RowBox[{"s", "/", 
+     RowBox[{"(", 
+      RowBox[{"Amp\[EGrave]re", "*", "m"}], ")"}]}]}]}], ";"}]}], "Input",Expr\
+essionUUID->"3311367c-a669-4fa7-a904-8a1dc17bb083"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[Epsilon]0", "*", "\[Mu]0", "*", 
+  RowBox[{"c", "^", "2"}]}]], "Input",ExpressionUUID->"730e30f0-7fad-4ac7-\
+bc91-533b03aa39ae"],
+
+Cell[BoxData["0.9999999999999999`"], "Output",
+ CellChangeTimes->{3.72217164126353*^9, 3.7221723716256127`*^9, 
+  3.7221750335674877`*^9},ExpressionUUID->"054bb3bf-8955-42e2-9a07-\
+d3bce8d4a814"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Inactivate", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"eq1", 
+        RowBox[{"(*", "gaussE", "*)"}], "=", 
+        RowBox[{
+         RowBox[{"Div", "[", 
+          RowBox[{
+           RowBox[{"\[ScriptCapitalE]", "[", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "\[Equal]", 
+         RowBox[{
+          RowBox[{"\[Rho]t", "[", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], "/", 
+          "\[Epsilon]0"}]}]}], ",", 
+       RowBox[{"eq2", 
+        RowBox[{"(*", 
+         RowBox[{"no", " ", "monopoles"}], " ", "*)"}], "=", 
+        RowBox[{
+         RowBox[{"Div", "[", 
+          RowBox[{
+           RowBox[{"\[ScriptCapitalB]", "[", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "\[Equal]", 
+         "0"}]}], ",", 
+       RowBox[{"eq3", 
+        RowBox[{"(*", "faraday", "*)"}], "=", 
+        RowBox[{
+         RowBox[{"Curl", "[", 
+          RowBox[{
+           RowBox[{"\[ScriptCapitalE]", "[", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "\[Equal]", 
+         RowBox[{
+          RowBox[{"-", " ", 
+           RowBox[{"D", "[", 
+            RowBox[{
+             RowBox[{"\[ScriptCapitalB]", "[", 
+              RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", "t"}], 
+            "]"}]}], "-", "  ", 
+          RowBox[{"D", "[", 
+           RowBox[{
+            RowBox[{"\[ScriptCapitalS]", "[", 
+             RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", "t"}], 
+           "]"}]}]}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"eq4", 
+        RowBox[{"(*", "ampere", "*)"}], "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Curl", "[", 
+           RowBox[{
+            RowBox[{"\[ScriptCapitalB]", "[", 
+             RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "-", 
+          RowBox[{
+           RowBox[{"1", "/", 
+            RowBox[{"c", "^", "2"}]}], "*", 
+           RowBox[{"D", "[", 
+            RowBox[{
+             RowBox[{"\[ScriptCapitalE]", "[", 
+              RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", "t"}], 
+            "]"}]}], "+", 
+          RowBox[{"Div", "[", 
+           RowBox[{
+            RowBox[{"\[ScriptCapitalS]", "[", 
+             RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}], "\[Equal]", 
+         
+         RowBox[{"\[Mu]0", "*", 
+          RowBox[{"\[ScriptJ]m", "[", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}]}]}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"eq5", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"Curl", "[", 
+          RowBox[{
+           RowBox[{"\[ScriptCapitalS]", "[", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "\[Equal]", 
+         "0"}]}], " ", ",", "\[IndentingNewLine]", " ", 
+       RowBox[{"eq6", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"Div", "[", 
+          RowBox[{
+           RowBox[{"\[ScriptCapitalS]", "[", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "==", 
+         RowBox[{"\[Mu]0", "*", 
+          RowBox[{"\[ScriptJ]m", "[", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}]}]}]}]}], "}"}], 
+     ",", 
+     RowBox[{"Div", "|", "Curl", "|", "D"}]}], "]"}], ";"}], 
+  "         "}]], "Input",
+ CellChangeTimes->{
+  3.722172308726302*^9, {3.722174743656579*^9, 
+   3.7221747691002235`*^9}},ExpressionUUID->"a2ac14f8-fa46-4b7a-9f8c-\
+07b476e6f6eb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Gauss's Law for Electricity\>\"", ",", 
+          "\"\<Gauss's Law for Magnetism\>\"", ",", "\"\<Faraday's Law\>\"", 
+          ",", "\"\<Amp\[EGrave]re's Law\>\"", ",", 
+          "\"\<No Rotation of Star Shine field\>\"", ",", " ", 
+          "\"\<Changing Star Shine field produces magnetic field\>\""}], " ", 
+         "}"}], ",", "%"}], "}"}], "]"}], ",", 
+     RowBox[{"Alignment", "\[Rule]", "Left"}], ",", 
+     RowBox[{"Dividers", "\[Rule]", "All"}], ",", 
+     RowBox[{"Spacings", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "2"}], "}"}]}]}], "]"}], "//", "TraditionalForm"}], 
+  "\n"}]], "Input",
+ CellChangeTimes->{{3.722171873235937*^9, 3.7221718758411417`*^9}, {
+  3.7221719688017054`*^9, 3.722172014400585*^9}, {3.722172060763867*^9, 
+  3.7221721425860105`*^9}, {3.7221731797382317`*^9, 
+  3.7221731913758526`*^9}},ExpressionUUID->"8620a0d4-7de4-498e-8d9f-\
+ab948188670e"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {"\<\"Gauss's Law for Electricity\"\>", 
+      RowBox[{
+       TemplateBox[{RowBox[{"\[ScriptCapitalE]", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+        "InactiveDiv"], "\[LongEqual]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1.1294090667581473`*^11", " ", "m", " ", "Volt", " ", 
+          RowBox[{"\[Rho]t", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"Amp\[EGrave]re", " ", "s"}], ")"}]}]}]},
+     {"\<\"Gauss's Law for Magnetism\"\>", 
+      RowBox[{
+       TemplateBox[{RowBox[{"\[ScriptCapitalB]", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+        "InactiveDiv"], "\[LongEqual]", "0"}]},
+     {"\<\"Faraday's Law\"\>", 
+      RowBox[{
+       TemplateBox[{RowBox[{"\[ScriptCapitalE]", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+        "InactiveCurl"], "\[LongEqual]", 
+       RowBox[{
+        RowBox[{"-", 
+         TagBox[
+          FractionBox[
+           RowBox[{"\[PartialD]", 
+            RowBox[{"\[ScriptCapitalS]", "(", 
+             RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}], 
+           RowBox[{"\[PartialD]", "t"}],
+           MultilineFunction->None],
+          "InactiveDTraditional"]}], "-", 
+        TagBox[
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"\[ScriptCapitalB]", "(", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}], 
+          RowBox[{"\[PartialD]", "t"}],
+          MultilineFunction->None],
+         "InactiveDTraditional"]}]}]},
+     {"\<\"Amp\[EGrave]re's Law\"\>", 
+      RowBox[{
+       RowBox[{
+        TemplateBox[{RowBox[{"\[ScriptCapitalB]", "(", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+         "InactiveCurl"], "+", 
+        TemplateBox[{RowBox[{"\[ScriptCapitalS]", "(", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+         "InactiveDiv"], "-", 
+        RowBox[{
+         FractionBox["1", 
+          SuperscriptBox["m", "2"]], 
+         RowBox[{"1.1126500560536185`*^-17", " ", 
+          SuperscriptBox["s", "2"], " ", 
+          TagBox[
+           FractionBox[
+            RowBox[{"\[PartialD]", 
+             RowBox[{"\[ScriptCapitalE]", "(", 
+              RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}], 
+            RowBox[{"\[PartialD]", "t"}],
+            MultilineFunction->None],
+           "InactiveDTraditional"]}]}]}], "\[LongEqual]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"\[Pi]", " ", "s", " ", "Volt", " ", 
+          RowBox[{"\[ScriptJ]m", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"2500000", " ", "Amp\[EGrave]re", " ", "m"}], ")"}]}]}]},
+     {"\<\"No Rotation of Star Shine field\"\>", 
+      RowBox[{
+       TemplateBox[{RowBox[{"\[ScriptCapitalS]", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+        "InactiveCurl"], "\[LongEqual]", "0"}]},
+     {"\<\"Changing Star Shine field produces magnetic field\"\>", 
+      RowBox[{
+       TemplateBox[{RowBox[{"\[ScriptCapitalS]", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+        "InactiveDiv"], "\[LongEqual]", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "s", " ", "Volt", " ", 
+         RowBox[{"\[ScriptJ]m", "(", 
+          RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}], 
+        RowBox[{"2500000", " ", "Amp\[EGrave]re", " ", "m"}]]}]}
+    },
+    AutoDelete->False,
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxDividers->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{4}}, "Rows" -> {{2}}}],
+   "Grid"], TraditionalForm]], "Output",
+ CellChangeTimes->{3.7221733928034067`*^9, 
+  3.722175045173908*^9},ExpressionUUID->"02014874-52d4-4f6e-b824-\
+af8a3b857d19"]
+}, Open  ]],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {"\"\<Gauss's Law for Electricity\>\"", 
+      RowBox[{
+       TemplateBox[{RowBox[{"\[ScriptCapitalE]", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+        "InactiveDiv"], "\[LongEqual]", 
+       FractionBox[
+        RowBox[{"\[Rho]t", "(", 
+         RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}], "\[Epsilon]0"]}]},
+     {"\"\<Gauss's Law for Magnetism\>\"", 
+      RowBox[{
+       TemplateBox[{RowBox[{"\[ScriptCapitalB]", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+        "InactiveDiv"], "\[LongEqual]", "0"}]},
+     {"\"\<Faraday's Law\>\"", 
+      RowBox[{
+       RowBox[{
+        TemplateBox[{RowBox[{"\[ScriptCapitalE]", "(", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+         "InactiveCurl"], "+", 
+        TagBox[
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"\[ScriptCapitalS]", "(", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}], 
+          RowBox[{"\[PartialD]", "t"}],
+          MultilineFunction->None],
+         "InactiveDTraditional"], "+", 
+        TagBox[
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"\[ScriptCapitalB]", "(", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}], 
+          RowBox[{"\[PartialD]", "t"}],
+          MultilineFunction->None],
+         "InactiveDTraditional"]}], "\[LongEqual]", "0"}]},
+     {"\"\<Amp\[EGrave]re's Law\>\"", 
+      RowBox[{
+       RowBox[{
+        TemplateBox[{RowBox[{"\[ScriptCapitalB]", "(", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+         "InactiveCurl"], "+", 
+        TemplateBox[{RowBox[{"\[ScriptCapitalS]", "(", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+         "InactiveDiv"], "-", 
+        FractionBox[
+         TagBox[
+          FractionBox[
+           RowBox[{"\[PartialD]", 
+            RowBox[{"\[ScriptCapitalE]", "(", 
+             RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}], 
+           RowBox[{"\[PartialD]", "t"}],
+           MultilineFunction->None],
+          "InactiveDTraditional"], 
+         SuperscriptBox["c", "2"]]}], "\[LongEqual]", 
+       RowBox[{"\[Mu]0", " ", 
+        RowBox[{"\[ScriptJ]m", "(", 
+         RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}]}]},
+     {"\"\<No Rotation of Star Shine field\>\"", 
+      RowBox[{
+       TemplateBox[{RowBox[{"\[ScriptCapitalS]", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+        "InactiveCurl"], "\[LongEqual]", "0"}]},
+     {"\"\<Changing Star Shine field produces magnetic field\>\"", 
+      RowBox[{
+       TemplateBox[{RowBox[{"\[ScriptCapitalS]", "(", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}],RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z"}], "}"}],"InactiveTraditional"},
+        "InactiveDiv"], "\[LongEqual]", 
+       RowBox[{"\[Mu]0", " ", 
+        RowBox[{"\[ScriptJ]m", "(", 
+         RowBox[{"x", ",", "y", ",", "z", ",", "t"}], ")"}]}]}]}
+    },
+    AutoDelete->False,
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxDividers->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{4}}, "Rows" -> {{2}}}],
+   "Grid"], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.722173160300598*^9, 
+  3.722173164153805*^9}},ExpressionUUID->"b0bf9fbb-86ee-4708-bccd-\
+dd9bdbbb9be7"],
+
+Cell["\<\
+Producing Amp\[EGrave]re's Law with consideration of the Star Shine field:\
+\>", "Text",ExpressionUUID->"448eafcd-46ad-4960-ad20-b0c7ea538692"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Inactive", "[", "Curl", "]"}], "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "&"}], "/@", 
+    "eq4"}], "/.", 
+   RowBox[{"\[ScriptJ]m", "\[Rule]", 
+    RowBox[{"(", 
+     RowBox[{"0", "&"}], ")"}]}]}], "//", "FullSimplify"}]], "Input",Expressio\
+nUUID->"26e10294-043e-495b-acea-2b8319cacc19"],
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{"0",RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}],"Inactive"},
+   "InactiveCurl"], "\[Equal]", 
+  TemplateBox[{RowBox[{"(", 
+      RowBox[{
+        TemplateBox[{
+          RowBox[{"\[ScriptCapitalB]", "[", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], 
+          RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}], "Inactive"}, 
+         "InactiveCurl", SyntaxForm -> Cross], "-", 
+        FractionBox[
+         RowBox[{"1.1126500560536185`*^-17", " ", 
+           SuperscriptBox["s", "2"], " ", 
+           TemplateBox[{"Inactive", 
+             RowBox[{"\[ScriptCapitalE]", "[", 
+               RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], "t"}, 
+            "InactiveD"]}], 
+         SuperscriptBox["m", "2"]], "+", 
+        TemplateBox[{
+          RowBox[{"\[ScriptCapitalS]", "[", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], 
+          RowBox[{"{", 
+            RowBox[{"x", ",", "y", ",", "z"}], "}"}], "Inactive"}, 
+         "InactiveDiv", SyntaxForm -> CenterDot]}], ")"}],RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}],"Inactive"},
+   "InactiveCurl"]}]], "Output",
+ CellChangeTimes->{
+  3.722335566243995*^9},ExpressionUUID->"e1517054-e127-4b6a-b1a8-\
+58bde7c6d199"]
+}, Open  ]],
+
+Cell["Producing Faraday's Law:", "Text",
+ CellChangeTimes->{{3.722335530239132*^9, 
+  3.7223355459483595`*^9}},ExpressionUUID->"50cd5905-fe0e-4193-821d-\
+d2a3773aa94c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Inactive", "[", "Curl", "]"}], "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "&"}], "/@", 
+    "eq3"}], "/.", 
+   RowBox[{"\[ScriptJ]m", "\[Rule]", 
+    RowBox[{"(", 
+     RowBox[{"0", "&"}], ")"}]}]}], "//", "FullSimplify"}]], "Input",
+ CellChangeTimes->{{3.722335635086916*^9, 
+  3.722335638612522*^9}},ExpressionUUID->"dd557677-18b3-443e-8853-\
+873d1b9bbef6"],
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{RowBox[{"(", 
+      TemplateBox[{
+        RowBox[{"\[ScriptCapitalE]", "[", 
+          RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], 
+        RowBox[{"{", 
+          RowBox[{"x", ",", "y", ",", "z"}], "}"}], "Inactive"}, 
+       "InactiveCurl", SyntaxForm -> Cross], ")"}],RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}],"Inactive"},
+   "InactiveCurl"], "\[Equal]", 
+  TemplateBox[{RowBox[{"(", 
+      RowBox[{
+        RowBox[{"-", 
+          TemplateBox[{"Inactive", 
+            RowBox[{"\[ScriptCapitalB]", "[", 
+              RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], "t"}, 
+           "InactiveD"]}], "-", 
+        TemplateBox[{"Inactive", 
+          RowBox[{"\[ScriptCapitalS]", "[", 
+            RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], "t"}, 
+         "InactiveD"]}], ")"}],RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}],"Inactive"},
+   "InactiveCurl"]}]], "Output",
+ CellChangeTimes->{
+  3.722335641389327*^9},ExpressionUUID->"7bd6d7ee-5f12-43b1-b311-\
+3a2c2a7d0f49"]
+}, Open  ]],
+
+Cell["Producing Gauss' Law for Electricity", "Text",
+ CellChangeTimes->{
+  3.7223358317564616`*^9, {3.722335878010543*^9, 
+   3.722335910006199*^9}},ExpressionUUID->"7ba6c073-b7e2-49d4-8a93-\
+7fe1bc908069"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Inactive", "[", "Div", "]"}], "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "&"}], "/@", 
+    "eq1"}], "/.", 
+   RowBox[{"\[ScriptJ]m", "\[Rule]", 
+    RowBox[{"(", 
+     RowBox[{"0", "&"}], ")"}]}]}], "//", "FullSimplify"}]], "Input",
+ CellChangeTimes->{{3.72233584222408*^9, 
+  3.7223358587445087`*^9}},ExpressionUUID->"a8de8860-5a8a-4e9f-b226-\
+a6892aaedd60"],
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{FractionBox[
+     RowBox[{"1.1294090667581473`*^11", " ", "m", " ", "Volt", " ", 
+       RowBox[{"\[Rho]t", "[", 
+         RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}]}], 
+     RowBox[{"Amp\[EGrave]re", " ", "s"}]],RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}],"Inactive"},
+   "InactiveDiv"], "\[Equal]", 
+  TemplateBox[{RowBox[{"(", 
+      TemplateBox[{
+        RowBox[{"\[ScriptCapitalE]", "[", 
+          RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], 
+        RowBox[{"{", 
+          RowBox[{"x", ",", "y", ",", "z"}], "}"}], "Inactive"}, 
+       "InactiveDiv", SyntaxForm -> CenterDot], ")"}],RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}],"Inactive"},
+   "InactiveDiv"]}]], "Output",
+ CellChangeTimes->{
+  3.722335861661714*^9},ExpressionUUID->"44499348-8d83-45ea-b2e8-\
+ff07e03417a0"]
+}, Open  ]],
+
+Cell["Producing Gauss' Law for Magnetism", "Text",
+ CellChangeTimes->{{3.7223359878971357`*^9, 3.7223360040431643`*^9}, {
+  3.722336301566887*^9, 
+  3.722336311223304*^9}},ExpressionUUID->"5ca5e424-9254-4187-830d-\
+a2c700e6f01a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Inactive", "[", "Div", "]"}], "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "&"}], "/@", 
+    "eq2"}], "/.", 
+   RowBox[{"\[ScriptJ]m", "\[Rule]", 
+    RowBox[{"(", 
+     RowBox[{"0", "&"}], ")"}]}]}], "//", "FullSimplify"}]], "Input",
+ CellChangeTimes->{{3.7223359649806957`*^9, 
+  3.722335967133499*^9}},ExpressionUUID->"e8d0ec09-16f3-4e8d-88a7-\
+05ec927b0f34"],
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{"0",RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}],"Inactive"},
+   "InactiveDiv"], "\[Equal]", 
+  TemplateBox[{RowBox[{"(", 
+      TemplateBox[{
+        RowBox[{"\[ScriptCapitalB]", "[", 
+          RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "]"}], 
+        RowBox[{"{", 
+          RowBox[{"x", ",", "y", ",", "z"}], "}"}], "Inactive"}, 
+       "InactiveDiv", SyntaxForm -> CenterDot], ")"}],RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}],"Inactive"},
+   "InactiveDiv"]}]], "Output",
+ CellChangeTimes->{
+  3.722335968506302*^9},ExpressionUUID->"bffaab8b-767c-4996-a3f9-\
+8f9994f3e77e"]
+}, Open  ]],
+
+Cell[TextData[{
+ "@Charles Hall: Now we consider the last two formulas in the HPT paper:\n\n\
+(1) ",
+ Cell[BoxData[
+  RowBox[{"F", "\[Equal]", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"K", " ", 
+      SubscriptBox["S", "1"], " ", 
+      SubscriptBox["S", "2"]}], 
+     SuperscriptBox["R", "2"]]}]}]],
+  CellChangeTimes->{3.7221754243169746`*^9},ExpressionUUID->
+  "cef94e68-af40-4ac0-a558-951290bd1801"],
+ "\n\nand \n\n(2) ",
+ Cell[BoxData[
+  RowBox[{"F", "\[Equal]", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"K", " ", 
+      SubscriptBox["S", "1"]}], 
+     SuperscriptBox["R", "2"]]}]}]],
+  CellChangeTimes->{3.7221754243169746`*^9, 3.722175504157915*^9},
+  ExpressionUUID->"8daf4b69-a748-47a0-916e-a433d6208988"],
+ "\n\nand ask: which units has the Star Shine force constant K?\n\nHm, if F \
+is a force, with units N = ",
+ Cell[BoxData[
+  FractionBox[
+   RowBox[{"kg", " ", "m"}], 
+   SuperscriptBox["s", "2"]]],
+  CellChangeTimes->{3.7221763403661833`*^9},ExpressionUUID->
+  "546b52d1-d0de-44b1-bd90-c4cf011af475"],
+ ", S1 and S2 charge strengths in Coulomb, and R is a length in meters,\nthen \
+according to equation (1) the unit of K must be meters/farad, the reciprocal \
+unit of \[Epsilon]0.\nBut introducing K with this units in (2), the left side \
+of (2)  has the units ",
+ Cell[BoxData[
+  FractionBox[
+   RowBox[{"kg", " ", "m"}], 
+   RowBox[{"Amp\[EGrave]re", " ", 
+    SuperscriptBox["s", "3"]}]]],
+  CellChangeTimes->{3.7221768457290707`*^9},ExpressionUUID->
+  "ad7d4930-38a7-4f69-a4df-b22be84fce77"],
+ ", so it cannot be a force.\n\nWhatever units we chose for K: either the F \
+in (1) or the F in (2) has the units of a force, but not both.\nIs something \
+wrong with this equations, or is it only a mistake by me?\nWould be very \
+pleased to read an answer from you.\n\nAt the end of the year 2017, \
+indirectly I could send Charles Hall this calculations and  received his \
+confirmation that they are correct\n\n\n  \n"
+}], "Text",ExpressionUUID->"35288612-798a-4dc6-bdc0-223d85aae60f"]
+},
+WindowSize->{1280, 734},
+WindowMargins->{{-4, Automatic}, {Automatic, -4}},
+PrintingCopies->1,
+PrintingPageRange->{32000, 32000},
+PrintingOptions->{"Magnification"->1.,
+"PaperOrientation"->"Portrait",
+"PaperSize"->{594.9599999999999, 842.04}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+Magnification->1.5,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[560, 20, 538, 9, 186, "Text",ExpressionUUID->"fad7b501-fadd-4aba-abd0-8644b20b3191"],
+Cell[1101, 31, 1031, 29, 129, "Input",ExpressionUUID->"3311367c-a669-4fa7-a904-8a1dc17bb083"],
+Cell[CellGroupData[{
+Cell[2157, 64, 154, 3, 43, "Input",ExpressionUUID->"730e30f0-7fad-4ac7-bc91-533b03aa39ae"],
+Cell[2314, 69, 195, 3, 49, "Output",ExpressionUUID->"054bb3bf-8955-42e2-9a07-d3bce8d4a814"]
+}, Open  ]],
+Cell[2524, 75, 4107, 107, 248, "Input",ExpressionUUID->"a2ac14f8-fa46-4b7a-9f8c-07b476e6f6eb"],
+Cell[CellGroupData[{
+Cell[6656, 186, 1095, 26, 189, "Input",ExpressionUUID->"8620a0d4-7de4-498e-8d9f-ab948188670e"],
+Cell[7754, 214, 4625, 103, 530, "Output",ExpressionUUID->"02014874-52d4-4f6e-b824-af8a3b857d19"]
+}, Open  ]],
+Cell[12394, 320, 4023, 89, 473, "Input",ExpressionUUID->"b0bf9fbb-86ee-4708-bccd-dd9bdbbb9be7"],
+Cell[16420, 411, 153, 2, 52, "Text",ExpressionUUID->"448eafcd-46ad-4960-ad20-b0c7ea538692"],
+Cell[CellGroupData[{
+Cell[16598, 417, 447, 14, 43, "Input",ExpressionUUID->"26e10294-043e-495b-acea-2b8319cacc19"],
+Cell[17048, 433, 1306, 31, 76, "Output",ExpressionUUID->"e1517054-e127-4b6a-b1a8-58bde7c6d199"]
+}, Open  ]],
+Cell[18369, 467, 168, 3, 52, "Text",ExpressionUUID->"50cd5905-fe0e-4193-821d-d2a3773aa94c"],
+Cell[CellGroupData[{
+Cell[18562, 474, 516, 16, 43, "Input",ExpressionUUID->"dd557677-18b3-443e-8853-873d1b9bbef6"],
+Cell[19081, 492, 1069, 26, 53, "Output",ExpressionUUID->"7bd6d7ee-5f12-43b1-b311-3a2c2a7d0f49"]
+}, Open  ]],
+Cell[20165, 521, 206, 4, 52, "Text",ExpressionUUID->"7ba6c073-b7e2-49d4-8a93-7fe1bc908069"],
+Cell[CellGroupData[{
+Cell[20396, 529, 516, 16, 43, "Input",ExpressionUUID->"a8de8860-5a8a-4e9f-b226-a6892aaedd60"],
+Cell[20915, 547, 870, 20, 77, "Output",ExpressionUUID->"44499348-8d83-45ea-b2e8-ff07e03417a0"]
+}, Open  ]],
+Cell[21800, 570, 229, 4, 52, "Text",ExpressionUUID->"5ca5e424-9254-4187-830d-a2c700e6f01a"],
+Cell[CellGroupData[{
+Cell[22054, 578, 517, 16, 43, "Input",ExpressionUUID->"e8d0ec09-16f3-4e8d-88a7-05ec927b0f34"],
+Cell[22574, 596, 653, 16, 53, "Output",ExpressionUUID->"bffaab8b-767c-4996-a3f9-8f9994f3e77e"]
+}, Open  ]],
+Cell[23242, 615, 2019, 48, 850, "Text",ExpressionUUID->"35288612-798a-4dc6-bdc0-223d85aae60f"]
+}
+]
+*)
+
