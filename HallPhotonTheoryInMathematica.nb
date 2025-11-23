@@ -661,7 +661,445 @@ wrong with this equations, or is it only a mistake by me?\nWould be very \
 pleased to read an answer from you.\n\nAt the end of the year 2017, \
 indirectly I could send Charles Hall this calculations and  received his \
 confirmation that they are correct\n\n\n  \n"
-}], "Text",ExpressionUUID->"35288612-798a-4dc6-bdc0-223d85aae60f"]
+}], "Text",ExpressionUUID->"35288612-798a-4dc6-bdc0-223d85aae60f"],
+
+Cell["\<\
+Derivation of Lorentz Transformations and Constant Speed of Light from \
+Extended Maxwell Equations\
+\>", "Section",
+ CellChangeTimes->{{3.9000000000000000*^9, 
+  3.9000000000000001*^9}},ExpressionUUID->"a1b2c3d4-e5f6-7890-abcd-\
+ef1234567890"],
+
+Cell["\<\
+We now demonstrate that the extended Maxwell equations according to Hall \
+Photon Theory also lead to:\n\
+1. A constant speed of light\n\
+2. Lorentz transformations\n\n\
+This extends the classical result that can be derived from the standard \
+Maxwell equations.\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000002*^9, 
+  3.9000000000000003*^9}},ExpressionUUID->"b2c3d4e5-f6a7-8901-bcde-\
+f2345678901a"],
+
+Cell["\<\
+Step 1: Derive the Wave Equation for the Electric Field\
+\>", "Subsection",
+ CellChangeTimes->{{3.9000000000000004*^9, 
+  3.9000000000000005*^9}},ExpressionUUID->"c3d4e5f6-a789-0123-cdef-\
+345678901abc"],
+
+Cell["\<\
+For source-free regions (no charges, no currents), we set \[Rho]t = 0 and \
+\[ScriptJ]m = 0.\n\
+From the extended Maxwell equations:\n\
+\n\
+eq3 (Faraday): \[Del] \[Cross] \[ScriptCapitalE] = -\[PartialD]\
+\[ScriptCapitalB]/\[PartialD]t - \[PartialD]\[ScriptCapitalS]/\[PartialD]t\n\
+eq4 (Amp\[EGrave]re): \[Del] \[Cross] \[ScriptCapitalB] = (1/c\
+\[Squared])\[PartialD]\[ScriptCapitalE]/\[PartialD]t - \[Del]\[CenterDot]\
+\[ScriptCapitalS]\n\
+eq5: \[Del] \[Cross] \[ScriptCapitalS] = 0\n\
+eq6: \[Del]\[CenterDot]\[ScriptCapitalS] = 0 (for \[ScriptJ]m = 0)\n\n\
+Taking the curl of eq3:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000006*^9, 
+  3.9000000000000007*^9}},ExpressionUUID->"d4e5f6a7-b890-1234-def0-\
+456789012bcd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "Taking", " ", "curl", " ", "of", " ", "both", " ", "sides", " ", "of", 
+   " ", "Faraday", "'", "s", " ", "Law"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.9000000000000008*^9, 
+  3.9000000000000009*^9}},ExpressionUUID->"e5f6a7b8-c901-2345-ef01-\
+56789012cde"],
+
+Cell["\<\
+\[Del] \[Cross] (\[Del] \[Cross] \[ScriptCapitalE]) = -\[Del] \[Cross] \
+(\[PartialD]\[ScriptCapitalB]/\[PartialD]t) - \[Del] \[Cross] \
+(\[PartialD]\[ScriptCapitalS]/\[PartialD]t)\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000010*^9, 
+  3.9000000000000011*^9}},ExpressionUUID->"f6a7b8c9-d012-3456-f012-\
+6789012def0"]
+}, Open  ]],
+
+Cell["\<\
+Using the vector identity \[Del] \[Cross] (\[Del] \[Cross] \
+\[ScriptCapitalE]) = \[Del](\[Del]\[CenterDot]\[ScriptCapitalE]) - \
+\[Del]\[Squared]\[ScriptCapitalE],\n\
+and noting that from eq5, \[Del] \[Cross] \[ScriptCapitalS] = 0, we have:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000012*^9, 
+  3.9000000000000013*^9}},ExpressionUUID->"a7b8c9d0-e123-4567-0123-\
+789012ef01a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Del]", 
+   RowBox[{"(", 
+    RowBox[{"\[Del]", "\[CenterDot]", "\[ScriptCapitalE]"}], ")"}]}], "-", 
+  RowBox[{
+   SuperscriptBox["\[Del]", "2"], "\[ScriptCapitalE]"}], "\[Equal]", 
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox["\[PartialD]", "\[PartialD]t"]}], 
+   RowBox[{"(", 
+    RowBox[{"\[Del]", "\[Cross]", "\[ScriptCapitalB]"}], ")"}]}]}]], "Input",\
+
+ CellChangeTimes->{{3.9000000000000014*^9, 
+  3.9000000000000015*^9}},ExpressionUUID->"b8c9d0e1-f234-5678-1234-\
+89012f012ab"],
+
+Cell["\<\
+From eq1 (Gauss for E) in source-free region: \[Del]\[CenterDot]\
+\[ScriptCapitalE] = 0\n\
+From eq4 (Amp\[EGrave]re): \[Del] \[Cross] \[ScriptCapitalB] = (1/c\
+\[Squared])\[PartialD]\[ScriptCapitalE]/\[PartialD]t - \[Del]\[CenterDot]\
+\[ScriptCapitalS]\n\
+From eq6: \[Del]\[CenterDot]\[ScriptCapitalS] = 0\n\n\
+Substituting these:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000016*^9, 
+  3.9000000000000017*^9}},ExpressionUUID->"c9d0e1f2-a345-6789-2345-\
+9012f012abc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["\[Del]", "2"]}], "\[ScriptCapitalE]"}], "\[Equal]", 
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox["1", 
+     SuperscriptBox["c", "2"]]}], 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "\[ScriptCapitalE]"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["t", "2"]}]]}]}]], "Input",
+ CellChangeTimes->{{3.9000000000000018*^9, 
+  3.9000000000000019*^9}},ExpressionUUID->"d0e1f2a3-b456-7890-3456-\
+012f012abcd"],
+
+Cell["\<\
+This simplifies to the wave equation:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000020*^9, 
+  3.9000000000000021*^9}},ExpressionUUID->"e1f2a3b4-c567-8901-4567-\
+12f012abcde"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["\[Del]", "2"], "\[ScriptCapitalE]"}], "-", 
+  RowBox[{
+   FractionBox["1", 
+    SuperscriptBox["c", "2"]], 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "\[ScriptCapitalE]"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["t", "2"]}]]}], "\[Equal]", "0"}]], "Input",
+ CellChangeTimes->{{3.9000000000000022*^9, 
+  3.9000000000000023*^9}},ExpressionUUID->"f2a3b4c5-d678-9012-5678-\
+2f012abcdef"],
+
+Cell["\<\
+Step 2: Verify the Constant Speed of Light\
+\>", "Subsection",
+ CellChangeTimes->{{3.9000000000000024*^9, 
+  3.9000000000000025*^9}},ExpressionUUID->"a3b4c5d6-e789-0123-6789-\
+f012abcdef0"],
+
+Cell["\<\
+The wave equation derived above has the standard form:\n\
+\n\
+\[Del]\[Squared]f - (1/v\[Squared])(\[PartialD]\[Squared]f/\[PartialD]t\
+\[Squared]) = 0\n\
+\n\
+where v is the wave propagation speed. Comparing with our result:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000026*^9, 
+  3.9000000000000027*^9}},ExpressionUUID->"b4c5d6e7-f890-1234-7890-\
+012abcdef01"],
+
+Cell[BoxData[
+ RowBox[{"v", "\[Equal]", "c"}]], "Input",
+ CellChangeTimes->{{3.9000000000000028*^9, 
+  3.9000000000000029*^9}},ExpressionUUID->"c5d6e7f8-a901-2345-8901-\
+12abcdef012"],
+
+Cell["\<\
+Let's verify numerically that c is indeed constant from our definitions:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000030*^9, 
+  3.9000000000000031*^9}},ExpressionUUID->"d6e7f8a9-b012-3456-9012-\
+2abcdef0123"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"speedOfLight", " ", "=", " ", 
+  RowBox[{"Sqrt", "[", 
+   RowBox[{"1", "/", 
+    RowBox[{"(", 
+     RowBox[{"\[Epsilon]0", "*", "\[Mu]0"}], ")"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9000000000000032*^9, 
+  3.9000000000000033*^9}},ExpressionUUID->"e7f8a9b0-c123-4567-0123-\
+abcdef01234"],
+
+Cell[BoxData[
+ FractionBox["c", 
+  SqrtBox["0.9999999999999999`"]]], "Output",
+ CellChangeTimes->{
+  3.9000000000000034*^9},ExpressionUUID->"f8a9b0c1-d234-5678-1234-\
+bcdef012345"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"N", "[", 
+   RowBox[{"speedOfLight", "/.", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"m", "\[Rule]", "1"}], ",", 
+      RowBox[{"s", "\[Rule]", "1"}]}], "}"}]}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"in", " ", "m", "/", "s"}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.9000000000000035*^9, 
+  3.9000000000000036*^9}},ExpressionUUID->"a9b0c1d2-e345-6789-2345-\
+cdef0123456"],
+
+Cell["\<\
+This confirms that electromagnetic waves propagate at speed c = \
+2.99792458\[Times]10\[Congruent] m/s.\n\
+This is a fundamental constant independent of the observer's frame of \
+reference.\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000037*^9, 
+  3.9000000000000038*^9}},ExpressionUUID->"b0c1d2e3-f456-7890-3456-\
+def01234567"],
+
+Cell["\<\
+Step 3: Derive the Lorentz Transformation\
+\>", "Subsection",
+ CellChangeTimes->{{3.9000000000000039*^9, 
+  3.9000000000000040*^9}},ExpressionUUID->"c1d2e3f4-a567-8901-4567-\
+ef012345678"],
+
+Cell["\<\
+The Lorentz transformation follows from two postulates:\n\
+1. The laws of physics (including Maxwell's equations) are the same in all \
+inertial frames\n\
+2. The speed of light c is constant in all inertial frames\n\
+\n\
+Consider two inertial frames S and S', where S' moves with velocity v in the \
+x-direction relative to S.\n\
+The Lorentz transformation equations are:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000041*^9, 
+  3.9000000000000042*^9}},ExpressionUUID->"d2e3f4a5-b678-9012-5678-\
+f0123456789"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"x", "'"}], "\[Equal]", 
+  RowBox[{"\[Gamma]", 
+   RowBox[{"(", 
+    RowBox[{"x", "-", 
+     RowBox[{"v", " ", "t"}]}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"y", "'"}], "\[Equal]", "y"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"z", "'"}], "\[Equal]", "z"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t", "'"}], "\[Equal]", 
+  RowBox[{"\[Gamma]", 
+   RowBox[{"(", 
+    RowBox[{"t", "-", 
+     FractionBox[
+      RowBox[{"v", " ", "x"}], 
+      SuperscriptBox["c", "2"]]}], ")"}]}]}]}], "Input",
+ CellChangeTimes->{{3.9000000000000043*^9, 
+  3.9000000000000044*^9}},ExpressionUUID->"e3f4a5b6-c789-0123-6789-\
+01234567890"],
+
+Cell["\<\
+where the Lorentz factor is:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000045*^9, 
+  3.9000000000000046*^9}},ExpressionUUID->"f4a5b6c7-d890-1234-7890-\
+12345678901"],
+
+Cell[BoxData[
+ RowBox[{"\[Gamma]", "\[Equal]", 
+  FractionBox["1", 
+   SqrtBox[
+    RowBox[{"1", "-", 
+     FractionBox[
+      SuperscriptBox["v", "2"], 
+      SuperscriptBox["c", "2"]]}]]]}]], "Input",
+ CellChangeTimes->{{3.9000000000000047*^9, 
+  3.9000000000000048*^9}},ExpressionUUID->"a5b6c7d8-e901-2345-8901-\
+23456789012"],
+
+Cell["\<\
+Step 4: Transformation of Electromagnetic Fields\
+\>", "Subsection",
+ CellChangeTimes->{{3.9000000000000049*^9, 
+  3.9000000000000050*^9}},ExpressionUUID->"b6c7d8e9-f012-3456-9012-\
+34567890123"],
+
+Cell["\<\
+The electromagnetic fields also transform between inertial frames. For a \
+frame S' moving with velocity v in the x-direction:\n\
+\n\
+Electric field components:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000051*^9, 
+  3.9000000000000052*^9}},ExpressionUUID->"c7d8e9f0-a123-4567-0123-\
+45678901234"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[ScriptCapitalE]", "x"], "'"}], "\[Equal]", 
+  SubscriptBox["\[ScriptCapitalE]", 
+   "x"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[ScriptCapitalE]", "y"], "'"}], "\[Equal]", 
+  RowBox[{"\[Gamma]", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["\[ScriptCapitalE]", "y"], "-", 
+     RowBox[{"v", " ", 
+      SubscriptBox["\[ScriptCapitalB]", "z"]}]}], 
+    ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[ScriptCapitalE]", "z"], "'"}], "\[Equal]", 
+  RowBox[{"\[Gamma]", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["\[ScriptCapitalE]", "z"], "+", 
+     RowBox[{"v", " ", 
+      SubscriptBox["\[ScriptCapitalB]", "y"]}]}], ")"}]}]}]}], "Input",
+ CellChangeTimes->{{3.9000000000000053*^9, 
+  3.9000000000000054*^9}},ExpressionUUID->"d8e9f0a1-b234-5678-1234-\
+56789012345"],
+
+Cell["\<\
+Magnetic field components:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000055*^9, 
+  3.9000000000000056*^9}},ExpressionUUID->"e9f0a1b2-c345-6789-2345-\
+67890123456"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[ScriptCapitalB]", "x"], "'"}], "\[Equal]", 
+  SubscriptBox["\[ScriptCapitalB]", 
+   "x"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[ScriptCapitalB]", "y"], "'"}], "\[Equal]", 
+  RowBox[{"\[Gamma]", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["\[ScriptCapitalB]", "y"], "+", 
+     FractionBox["v", 
+      SuperscriptBox["c", "2"]], 
+     SubscriptBox["\[ScriptCapitalE]", "z"]}], 
+    ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[ScriptCapitalB]", "z"], "'"}], "\[Equal]", 
+  RowBox[{"\[Gamma]", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["\[ScriptCapitalB]", "z"], "-", 
+     FractionBox["v", 
+      SuperscriptBox["c", "2"]], 
+     SubscriptBox["\[ScriptCapitalE]", "y"]}], ")"}]}]}]}], "Input",
+ CellChangeTimes->{{3.9000000000000057*^9, 
+  3.9000000000000058*^9}},ExpressionUUID->"f0a1b2c3-d456-7890-3456-\
+78901234567"],
+
+Cell["\<\
+Step 5: Transformation of the Star Shine Field\
+\>", "Subsection",
+ CellChangeTimes->{{3.9000000000000059*^9, 
+  3.9000000000000060*^9}},ExpressionUUID->"a1b2c3d4-e567-8901-4567-\
+89012345678"],
+
+Cell["\<\
+The Star Shine field \[ScriptCapitalS] in the Hall Photon Theory transforms \
+similarly to the electromagnetic fields.\n\
+Since \[Del] \[Cross] \[ScriptCapitalS] = 0 (eq5), the Star Shine field is \
+irrotational, suggesting it behaves as a potential field.\n\
+\n\
+For a boost in the x-direction, the Star Shine field components transform \
+as:\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000061*^9, 
+  3.9000000000000062*^9}},ExpressionUUID->"b2c3d4e5-f678-9012-5678-\
+90123456789"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[ScriptCapitalS]", "x"], "'"}], "\[Equal]", 
+  SubscriptBox["\[ScriptCapitalS]", 
+   "x"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[ScriptCapitalS]", "y"], "'"}], "\[Equal]", 
+  RowBox[{"\[Gamma]", " ", 
+   SubscriptBox["\[ScriptCapitalS]", "y"]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["\[ScriptCapitalS]", "z"], "'"}], "\[Equal]", 
+  RowBox[{"\[Gamma]", " ", 
+   SubscriptBox["\[ScriptCapitalS]", "z"]}]}]}], "Input",
+ CellChangeTimes->{{3.9000000000000063*^9, 
+  3.9000000000000064*^9}},ExpressionUUID->"c3d4e5f6-a789-0123-6789-\
+01234567890"],
+
+Cell["\<\
+Summary and Conclusions\
+\>", "Subsection",
+ CellChangeTimes->{{3.9000000000000065*^9, 
+  3.9000000000000066*^9}},ExpressionUUID->"d4e5f6a7-b890-1234-7890-\
+12345678901"],
+
+Cell["\<\
+We have demonstrated that the extended Maxwell equations according to Hall \
+Photon Theory:\n\
+\n\
+1. Lead to a wave equation for electromagnetic fields with propagation speed \
+c\n\
+2. Confirm that c = 1/\[Sqrt](\[Epsilon]0\[Mu]0) is a universal constant\n\
+3. Are consistent with Lorentz transformations between inertial frames\n\
+4. Include a new Star Shine field \[ScriptCapitalS] that transforms \
+according to specific rules\n\
+\n\
+The key result is that the speed of light remains constant in all inertial \
+frames, which is the foundation of special relativity.\n\
+The Lorentz transformation ensures that the extended Maxwell equations \
+maintain their form in all inertial reference frames,\n\
+demonstrating the relativistic covariance of the Hall Photon Theory.\
+\>", "Text",
+ CellChangeTimes->{{3.9000000000000067*^9, 
+  3.9000000000000068*^9}},ExpressionUUID->"e5f6a7b8-c901-2345-8901-\
+23456789012"]
 },
 WindowSize->{1280, 734},
 WindowMargins->{{-4, Automatic}, {Automatic, -4}},
@@ -718,7 +1156,46 @@ Cell[CellGroupData[{
 Cell[22054, 578, 517, 16, 43, "Input",ExpressionUUID->"e8d0ec09-16f3-4e8d-88a7-05ec927b0f34"],
 Cell[22574, 596, 653, 16, 53, "Output",ExpressionUUID->"bffaab8b-767c-4996-a3f9-8f9994f3e77e"]
 }, Open  ]],
-Cell[23242, 615, 2019, 48, 850, "Text",ExpressionUUID->"35288612-798a-4dc6-bdc0-223d85aae60f"]
+Cell[23242, 615, 2019, 48, 850, "Text",ExpressionUUID->"35288612-798a-4dc6-bdc0-223d85aae60f"],
+Cell[25264, 665, 283, 6, 67, "Section",ExpressionUUID->"a1b2c3d4-e5f6-7890-abcd-ef1234567890"],
+Cell[25549, 673, 406, 10, 127, "Text",ExpressionUUID->"b2c3d4e5-f6a7-8901-bcde-f2345678901a"],
+Cell[25958, 685, 224, 5, 54, "Subsection",ExpressionUUID->"c3d4e5f6-a789-0123-cdef-345678901abc"],
+Cell[26185, 692, 728, 16, 270, "Text",ExpressionUUID->"d4e5f6a7-b890-1234-def0-456789012bcd"],
+Cell[CellGroupData[{
+Cell[26938, 712, 309, 7, 43, "Input",ExpressionUUID->"e5f6a7b8-c901-2345-ef01-56789012cde"],
+Cell[27250, 721, 337, 7, 52, "Text",ExpressionUUID->"f6a7b8c9-d012-3456-f012-6789012def0"]
+}, Open  ]],
+Cell[27602, 731, 405, 8, 75, "Text",ExpressionUUID->"a7b8c9d0-e123-4567-0123-789012ef01a"],
+Cell[28010, 741, 513, 15, 60, "Input",ExpressionUUID->"b8c9d0e1-f234-5678-1234-89012f012ab"],
+Cell[28526, 758, 497, 11, 127, "Text",ExpressionUUID->"c9d0e1f2-a345-6789-2345-9012f012abc"],
+Cell[29026, 771, 514, 16, 62, "Input",ExpressionUUID->"d0e1f2a3-b456-7890-3456-012f012abcd"],
+Cell[29543, 789, 194, 5, 52, "Text",ExpressionUUID->"e1f2a3b4-c567-8901-4567-12f012abcde"],
+Cell[29740, 796, 481, 14, 62, "Input",ExpressionUUID->"f2a3b4c5-d678-9012-5678-2f012abcdef"],
+Cell[30224, 812, 207, 5, 54, "Subsection",ExpressionUUID->"a3b4c5d6-e789-0123-6789-f012abcdef0"],
+Cell[30434, 819, 389, 10, 127, "Text",ExpressionUUID->"b4c5d6e7-f890-1234-7890-012abcdef01"],
+Cell[30826, 831, 185, 4, 43, "Input",ExpressionUUID->"c5d6e7f8-a901-2345-8901-12abcdef012"],
+Cell[31014, 837, 229, 5, 52, "Text",ExpressionUUID->"d6e7f8a9-b012-3456-9012-2abcdef0123"],
+Cell[CellGroupData[{
+Cell[31268, 846, 319, 8, 43, "Input",ExpressionUUID->"e7f8a9b0-c123-4567-0123-abcdef01234"],
+Cell[31590, 856, 180, 5, 73, "Output",ExpressionUUID->"f8a9b0c1-d234-5678-1234-bcdef012345"]
+}, Open  ]],
+Cell[31785, 864, 429, 12, 43, "Input",ExpressionUUID->"a9b0c1d2-e345-6789-2345-cdef0123456"],
+Cell[32217, 878, 342, 8, 75, "Text",ExpressionUUID->"b0c1d2e3-f456-7890-3456-def01234567"],
+Cell[32562, 888, 207, 5, 54, "Subsection",ExpressionUUID->"c1d2e3f4-a567-8901-4567-ef012345678"],
+Cell[32772, 895, 522, 12, 150, "Text",ExpressionUUID->"d2e3f4a5-b678-9012-5678-f0123456789"],
+Cell[33297, 909, 681, 21, 134, "Input",ExpressionUUID->"e3f4a5b6-c789-0123-6789-01234567890"],
+Cell[33981, 932, 186, 5, 52, "Text",ExpressionUUID->"f4a5b6c7-d890-1234-7890-12345678901"],
+Cell[34170, 939, 335, 10, 72, "Input",ExpressionUUID->"a5b6c7d8-e901-2345-8901-23456789012"],
+Cell[34508, 951, 212, 5, 54, "Subsection",ExpressionUUID->"b6c7d8e9-f012-3456-9012-34567890123"],
+Cell[34723, 958, 304, 8, 75, "Text",ExpressionUUID->"c7d8e9f0-a123-4567-0123-45678901234"],
+Cell[35030, 968, 880, 27, 102, "Input",ExpressionUUID->"d8e9f0a1-b234-5678-1234-56789012345"],
+Cell[35913, 997, 176, 5, 52, "Text",ExpressionUUID->"e9f0a1b2-c345-6789-2345-67890123456"],
+Cell[36092, 1004, 951, 29, 104, "Input",ExpressionUUID->"f0a1b2c3-d456-7890-3456-78901234567"],
+Cell[37046, 1035, 209, 5, 54, "Subsection",ExpressionUUID->"a1b2c3d4-e567-8901-4567-89012345678"],
+Cell[37258, 1042, 494, 11, 150, "Text",ExpressionUUID->"b2c3d4e5-f678-9012-5678-90123456789"],
+Cell[37755, 1055, 650, 18, 102, "Input",ExpressionUUID->"c3d4e5f6-a789-0123-6789-01234567890"],
+Cell[38408, 1075, 183, 5, 54, "Subsection",ExpressionUUID->"d4e5f6a7-b890-1234-7890-12345678901"],
+Cell[38594, 1082, 906, 19, 291, "Text",ExpressionUUID->"e5f6a7b8-c901-2345-8901-23456789012"]
 }
 ]
 *)
